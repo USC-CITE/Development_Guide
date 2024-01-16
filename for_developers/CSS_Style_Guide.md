@@ -8,10 +8,10 @@ There are plenty of CSS style guides like this on the Internet. This is one of t
 
 ## Table of contents
 
--   [Why enforce this guide?](<#Why enforce\ this\ guide?>)
--   [Browser compatibility](<#Browser\ compatibility>)
--   [Style formatting](<#Style\ formatting>)
--   [The global stylesheet](<#The\ global\ stylesheet>)
+-   [Why enforce this guide?](#why-enforce-this-guide)
+-   [Browser compatibility](#browser-compatibility)
+-   [Style formatting](#style-formatting)
+-   [The global stylesheet](#the-global-stylesheet)
 
 ## Why enforce this guide?
 
