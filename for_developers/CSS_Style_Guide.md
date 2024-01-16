@@ -50,3 +50,157 @@ One CSS feature that was added between those years was **Custom CSS Variables/Pr
 > **What happens if I use an unsupported functionality?**
 >
 > Your browser will ignore the unrecognized style and move on to parse another. It won't return an error and make your webpage stop loading.
+
+## Style formatting
+
+The formatting rules are copied and altered from [Principles of writing consistent, idiomatic CSS](https://github.com/necolas/idiomatic-css) by Nicolas Gallagher and is licensed under the [Creative Commons Attribution 3.0 Unported License](http://creativecommons.org/licenses/by/3.0/).
+
+---
+
+### Whitespace
+
+Only one style should exist across the entire source of your codebase. Always be consistent in your use of whitespace. Use whitespace to improve readability.
+
+-   **Never** mix spaces and tabs for indentation.
+-   Choose between soft indents (spaces) or real tabs. Stick to your choice without fail. **(Preference: tabs)**
+-   If using spaces, choose the number of characters used per indentation level. **(Preference: 4 spaces)**
+
+### Comments
+
+Well commented code is extremely important. Take time to describe components, how they work, their limitations, and the way they are constructed. Don't leave others in the team guessing as to the purpose of uncommon or non-obvious code.
+
+Comment style should be simple and consistent within a single code base.
+
+- Place comments on a new line above their subject.
+- Keep line-length to a sensible maximum, **(Preference: 80 columns)**.
+- Make liberal use of comments to break CSS code into - discrete sections.
+- Use "_sentence case_" comments and consistent text indentation.
+
+Tip: configure your editor to provide you with shortcuts to output agreed-upon comment patterns.
+
+Example:
+```css
+/* ==========================================================================
+   Section comment block
+   ========================================================================== */
+
+/* Sub-section comment block
+   ========================================================================== */
+
+/**
+ * Short description using Doxygen-style comment format
+ *
+ * The first sentence of the long description starts here and continues on this
+ * line for a while finally concluding here at the end of this paragraph.
+ *
+ * The long description is ideal for more detailed explanations and
+ * documentation. It can include example HTML, URLs, or any other information
+ * that is deemed necessary or useful.
+ *
+ * @tag This is a tag named 'tag'
+ *
+ * TODO: This is a todo statement that describes an atomic task to be completed
+ *   at a later date. It wraps after 80 characters and following lines are
+ *   indented by 2 spaces.
+ */
+
+/* Basic comment */
+```
+
+### Formatting
+
+The chosen code format must ensure that code is: easy to read; easy to clearly comment; minimizes the chance of accidentally introducing errors; and results in useful diffs and blames.
+
+-   Use one discrete selector per line in multi-selector rulesets.
+-   Include a single space before the opening brace of a ruleset.
+-   Include one declaration per line in a declaration block.
+-   Use one level of indentation for each declaration.
+-   Include a single space after the colon of a declaration.
+-   Use uppercase hex values, e.g., `#FFAAEE.
+-   Use single or double quotes consistently. **Preference is for single quotes**, e.g., `content: ''`.
+-   Quote attribute values in selectors, e.g., `input[type='checkbox']`.
+-   Where allowed, avoid specifying units for zero-values, e.g., `margin: 0`.
+-   Include a space after each comma in comma-separated property or function values.
+-   Include a semi-colon at the end of the last declaration in a declaration block.
+-   Place the closing brace of a ruleset in the same column as the first character of the ruleset.
+-   Separate each ruleset by a blank line.
+
+```css
+.selector-1,
+.selector-2,
+.selector-3[type="text"] {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    display: block;
+    font-family: helvetica, arial, sans-serif;
+    color: #333333;
+    background: #FFFFFF;
+    background: linear-gradient(#FFFFFF, rgba(0, 0, 0, 0.8));
+}
+
+.selector-a,
+.selector-b {
+    padding: 10px;
+}
+```
+
+### Declaration order
+
+If declarations are to be consistently ordered, it should be in accordance with a single, simple principle.
+
+Smaller teams may prefer to cluster related properties (e.g. positioning and box-model) together.
+
+```css
+.selector {
+    /* Positioning */
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    /* Display & Box Model */
+    display: inline-block;
+    overflow: hidden;
+    box-sizing: border-box;
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+    border: 10px solid #333;
+    margin: 10px;
+
+    /* Other */
+    background: #000;
+    color: #fff;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: right;
+}
+```
+
+Larger teams may prefer the simplicity and ease-of-maintenance that comes with alphabetical ordering.
+
+### Exceptions and slight deviations
+
+Large blocks of single declarations can use a slightly different, single-line format. In this case, a space should be included after the opening brace and before the closing brace.
+
+```css
+.selector-1 { width: 10%; }
+.selector-2 { width: 20%; }
+.selector-3 { width: 30%; }
+```
+
+Long, comma-separated property values - such as collections of gradients or shadows - can be arranged across multiple lines in an effort to improve readability and produce more useful diffs. There are various formats that could be used; one example is shown below.
+
+```css
+.selector {
+    background-image: 
+	    linear-gradient(#FFFFFF, #CCCCCC), 
+	    linear-gradient(#FF33CC, #44EECC);
+    box-shadow: 
+	    1px 1px 1px #000000, 
+	    2px 2px 1px 1px #CCCCCC inset;
+}
+```
