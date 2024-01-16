@@ -204,3 +204,64 @@ Long, comma-separated property values - such as collections of gradients or shad
 	    2px 2px 1px 1px #CCCCCC inset;
 }
 ```
+
+## The global stylesheet
+
+A stylesheet is global because it is present in every HTML page you render. This is where you **include styles that are common for every page**.
+
+For example: a website and its webpages always have a header so it makes sense to include it in the global stylesheet.
+
+```css
+/* global.css */
+
+.header {
+    position: relative;
+    height: 13.5rem;
+    border-bottom: 0.1rem solid #187516;
+    border-bottom: 0.1rem solid var(--bilbao);
+}
+
+.header-logo {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+```
+
+Headers include a navigation bar and on some websites one of the navigation links change appearance to indicate the webpage you are on. 
+
+This unique style can be appended in two ways:
+1. Add the style to the unique stylesheet for that page.
+2. Add a utility class on the global stylesheet and append it to the HTML tag.
+
+Let's try the second one:
+
+```css
+/* global.css */
+
+.link--isInPage > a {
+    color: #212121;
+    color: var(--black);
+}
+```
+
+```html
+<!-- some-page.html -->
+
+<nav>
+    <ul class="links">
+      <li class="link link--isInPage"><a href="/login">Log-In</a></li>
+      <li class="link"><a href="/signup/profile">Sign-Up</a></li>
+    </ul>
+</nav>
+```
+
+If we go with the first one, we risk repeating the same style for every page. What happens if we want to make a change? Then we have to modify that change repeatedly on every page as well.
+
+The second one allows us to make that change only on the global stylesheet. Whatever changes we make is replicated across all HTML tags that bear the same class. 
+
+> _This allows you to have a single source of truth... [This is the definition of scalability and maintainability](https://frontstuff.io/in-defense-of-utility-first-css). All you have to do is reuse the available code you wrote proactively, instead of having to tweak existing code reactively. - Sarah Dayan_
+
+Again **include the styles that can be generalized to your website**. If a HTML tag requires some uniqueness and is reused across other pages, include it in the global stylesheet. **If a style is only unique to that page**, put it in its own stylesheet or `<style>` tag whichever makes sense.
