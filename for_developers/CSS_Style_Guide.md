@@ -12,6 +12,7 @@ There are plenty of CSS style guides like this on the Internet. This is one of t
 -   [Browser compatibility](#browser-compatibility)
 -   [Style formatting](#style-formatting)
 -   [The global stylesheet](#the-global-stylesheet)
+-   [When not to use CSS classes?](#when-not-to-use-css-classes)
 
 ## Why enforce this guide?
 
@@ -265,3 +266,46 @@ The second one allows us to make that change only on the global stylesheet. What
 > _This allows you to have a single source of truth... [This is the definition of scalability and maintainability](https://frontstuff.io/in-defense-of-utility-first-css). All you have to do is reuse the available code you wrote proactively, instead of having to tweak existing code reactively. - Sarah Dayan_
 
 Again **include the styles that can be generalized to your website**. If a HTML tag requires some uniqueness and is reused across other pages, include it in the global stylesheet. **If a style is only unique to that page**, put it in its own stylesheet or `<style>` tag whichever makes sense.
+
+## When not to use CSS classes
+
+There are exceptions but existing semantic HTML tags such as `<nav>`, `<menu>`, `<main>`, `<header>`, `<footer>`, and others do not need their own class.
+
+You can target them using their corresponding tag selector:
+```css
+main {
+  property: value;
+}
+
+header {
+  property: value;
+}
+```
+
+**The moment you need a class is when you want to distinguish a HTML element that is not possible with only a HTML tag.**
+
+Some good examples are accordions, dropdowns, and modals:
+```css
+.accordion{}
+.accordion__item{}
+
+.dropdown{}
+.dropdown__item{}
+
+.modal{}
+```
+
+These utilize a general tag such as `<div>` as no existing semantic HTML tag exists for those elements (except for modals which have the `<dialog>` tag and only got full support on 2022).
+
+It is also applied to headings, paragraphs, sections, anything you want to represent:
+```css
+.heading-1{}
+.some-heading{}
+
+.terms-and-conditions{}
+
+.section-about{}
+.section-sponsors{}
+```
+
+Real-world CSS can be different than the examples above but I hope this gives you an idea on when should you use classes and use normal tag selectors instead.
