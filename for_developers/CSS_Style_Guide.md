@@ -57,7 +57,25 @@ One CSS feature that was added between those years was **Custom CSS Variables/Pr
 
 The formatting rules are copied and altered from [Principles of writing consistent, idiomatic CSS](https://github.com/necolas/idiomatic-css) by Nicolas Gallagher and is licensed under the [Creative Commons Attribution 3.0 Unported License](http://creativecommons.org/licenses/by/3.0/).
 
----
+### Formatter
+
+While reading this section can benefit you, utilizing a formatter will save you time. This guide uses [Prettier](https://prettier.io/docs/en/why-prettier) and supports the following code editors:
+
+![](../assets/CSS_Style_Guide/editors_prettier_supports.png)
+
+You can [configure Prettier](https://prettier.io/docs/en/configuration) in a configuration file. Paste the code below in a file called `.prettierrc`.
+
+```json
+{
+    "printWidth": 80,
+    "htmlWhitespaceSensitivity": "css",
+    "bracketSameLine": true,
+    "bracketSpacing": true,
+    "singleQuote": true,
+    "tabWidth": 4,
+    "semi": true
+}
+```
 
 ### Whitespace
 
@@ -73,14 +91,15 @@ Well commented code is extremely important. Take time to describe components, ho
 
 Comment style should be simple and consistent within a single code base.
 
-- Place comments on a new line above their subject.
-- Keep line-length to a sensible maximum, **(Preference: 80 columns)**.
-- Make liberal use of comments to break CSS code into - discrete sections.
-- Use "_sentence case_" comments and consistent text indentation.
+-   Place comments on a new line above their subject.
+-   Keep line-length to a sensible maximum, **(Preference: 80 columns)**.
+-   Make liberal use of comments to break CSS code into - discrete sections.
+-   Use "_sentence case_" comments and consistent text indentation.
 
 Tip: configure your editor to provide you with shortcuts to output agreed-upon comment patterns.
 
 Example:
+
 ```css
 /* ==========================================================================
    Section comment block
@@ -130,15 +149,15 @@ The chosen code format must ensure that code is: easy to read; easy to clearly c
 ```css
 .selector-1,
 .selector-2,
-.selector-3[type="text"] {
+.selector-3[type='text'] {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     display: block;
     font-family: helvetica, arial, sans-serif;
     color: #333333;
-    background: #FFFFFF;
-    background: linear-gradient(#FFFFFF, rgba(0, 0, 0, 0.8));
+    background: #ffffff;
+    background: linear-gradient(#ffffff, rgba(0, 0, 0, 0.8));
 }
 
 .selector-a,
@@ -189,21 +208,23 @@ Larger teams may prefer the simplicity and ease-of-maintenance that comes with a
 Large blocks of single declarations can use a slightly different, single-line format. In this case, a space should be included after the opening brace and before the closing brace.
 
 ```css
-.selector-1 { width: 10%; }
-.selector-2 { width: 20%; }
-.selector-3 { width: 30%; }
+.selector-1 {
+    width: 10%;
+}
+.selector-2 {
+    width: 20%;
+}
+.selector-3 {
+    width: 30%;
+}
 ```
 
 Long, comma-separated property values - such as collections of gradients or shadows - can be arranged across multiple lines in an effort to improve readability and produce more useful diffs. There are various formats that could be used; one example is shown below.
 
 ```css
 .selector {
-    background-image: 
-	    linear-gradient(#FFFFFF, #CCCCCC), 
-	    linear-gradient(#FF33CC, #44EECC);
-    box-shadow: 
-	    1px 1px 1px #000000, 
-	    2px 2px 1px 1px #CCCCCC inset;
+    background-image: linear-gradient(#ffffff, #cccccc), linear-gradient(#ff33cc, #44eecc);
+    box-shadow: 1px 1px 1px #000000, 2px 2px 1px 1px #cccccc inset;
 }
 ```
 
@@ -232,9 +253,10 @@ For example: a website and its webpages always have a header so it makes sense t
 
 ```
 
-Headers include a navigation bar and on some websites one of the navigation links change appearance to indicate the webpage you are on. 
+Headers include a navigation bar and on some websites one of the navigation links change appearance to indicate the webpage you are on.
 
 This unique style can be appended in two ways:
+
 1. Add the style to the unique stylesheet for that page.
 2. Add a utility class on the global stylesheet and append it to the HTML tag.
 
@@ -254,15 +276,15 @@ Let's try the second one:
 
 <nav>
     <ul class="links">
-      <li class="link link--isInPage"><a href="/login">Log-In</a></li>
-      <li class="link"><a href="/signup/profile">Sign-Up</a></li>
+        <li class="link link--isInPage"><a href="/login">Log-In</a></li>
+        <li class="link"><a href="/signup/profile">Sign-Up</a></li>
     </ul>
 </nav>
 ```
 
 If we go with the first one, we risk repeating the same style for every page. What happens if we want to make a change? Then we have to modify that change repeatedly on every page as well.
 
-The second one allows us to make that change only on the global stylesheet. Whatever changes we make is replicated across all HTML tags that bear the same class. 
+The second one allows us to make that change only on the global stylesheet. Whatever changes we make is replicated across all HTML tags that bear the same class.
 
 > _This allows you to have a single source of truth... [This is the definition of scalability and maintainability](https://frontstuff.io/in-defense-of-utility-first-css). All you have to do is reuse the available code you wrote proactively, instead of having to tweak existing code reactively. - Sarah Dayan_
 
@@ -273,61 +295,78 @@ Again **include the styles that can be generalized to your website**. If a HTML 
 There are exceptions but existing semantic HTML tags such as `<nav>`, `<menu>`, `<main>`, `<header>`, `<footer>`, and others do not need their own class.
 
 You can target them using their corresponding tag selector:
+
 ```css
 main {
-  property: value;
+    property: value;
 }
 
 header {
-  property: value;
+    property: value;
 }
 ```
 
 **The moment you need a class is when you want to distinguish a HTML element that is not possible with only a HTML tag.**
 
 Some good examples are accordions, dropdowns, and modals:
+
 ```css
-.accordion{}
-.accordion__item{}
+.accordion {
+}
+.accordion__item {
+}
 
-.dropdown{}
-.dropdown__item{}
+.dropdown {
+}
+.dropdown__item {
+}
 
-.modal{}
+.modal {
+}
 ```
 
 These utilize a general tag such as `<div>` as no existing semantic HTML tag exists for those elements (except for modals which have the `<dialog>` tag and only got full support on 2022).
 
 It is also applied to headings, paragraphs, sections, anything you want to represent:
+
 ```css
-.heading-1{}
-.some-heading{}
+.heading-1 {
+}
+.some-heading {
+}
 
-.terms-and-conditions{}
+.terms-and-conditions {
+}
 
-.section-about{}
-.section-sponsors{}
+.section-about {
+}
+.section-sponsors {
+}
 ```
 
 Real-world CSS can be different than the examples above but I hope this gives you an idea on when should you use classes and use normal tag selectors instead.
 
 ## Naming and using CSS classes
 
-This guide utilizes the **Block-Element-Modifier or BEM methodology** for naming and assigning CSS classes to HTML elements. 
+This guide utilizes the **Block-Element-Modifier or BEM methodology** for naming and assigning CSS classes to HTML elements.
 
 In short:
 
-- **Block** - a CSS class that represents a HTML element which may be standalone or encapsulates multiple components.
-- **Element** - a CSS class that represents a HTML element as a component of a block.
-- **Modifier** - a CSS class that modifies a block or element to represent its state or behavior.
+-   **Block** - a CSS class that represents a HTML element which may be standalone or encapsulates multiple components.
+-   **Element** - a CSS class that represents a HTML element as a component of a block.
+-   **Modifier** - a CSS class that modifies a block or element to represent its state or behavior.
 
 ```css
-.block {}
+.block {
+}
 
-.block__element{}
+.block__element {
+}
 
-.block--modifier{}
-.block__element--modifier{}
+.block--modifier {
+}
+.block__element--modifier {
+}
 ```
 
 Please read the webpage below to get a comprehensive view of the method:
