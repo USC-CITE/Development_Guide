@@ -13,6 +13,7 @@ There are plenty of CSS style guides like this on the Internet. This is one of t
 -   [Style formatting](#style-formatting)
 -   [The global stylesheet](#the-global-stylesheet)
 -   [When not to use CSS classes?](#when-not-to-use-css-classes)
+-   [Naming and using CSS classes](#naming-and-using-css-classes)
 
 ## Why enforce this guide?
 
@@ -309,3 +310,25 @@ It is also applied to headings, paragraphs, sections, anything you want to repre
 ```
 
 Real-world CSS can be different than the examples above but I hope this gives you an idea on when should you use classes and use normal tag selectors instead.
+
+## Naming and using CSS classes
+
+This guide utilizes the **Block-Element-Modifier or BEM methodology** for naming and assigning CSS classes to HTML elements. 
+
+In short:
+
+- **Block** - a CSS class that represents a HTML element which may be standalone or encapsulates multiple components.
+- **Element** - a CSS class that represents a HTML element as a component of a block.
+- **Modifier** - a CSS class that modifies a block or element to represent its state or behavior.
+
+```css
+.block {}
+
+.block__element{}
+
+.block--modifier{}
+.block__element--modifier{}
+```
+
+Please read the webpage below to get a comprehensive view of the method:
+https://getbem.com/naming/
