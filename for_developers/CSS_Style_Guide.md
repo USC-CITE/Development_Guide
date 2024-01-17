@@ -332,3 +332,9 @@ In short:
 
 Please read the webpage below to get a comprehensive view of the method:
 https://getbem.com/naming/
+
+## License
+
+This work is licensed under the Creative Commons Attribution 4.0 International.
+
+To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.
