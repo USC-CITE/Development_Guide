@@ -67,7 +67,7 @@ You can [configure Prettier](https://prettier.io/docs/en/configuration) in a con
 
 ```json
 {
-    "printWidth": 80,
+    "printWidth": 120,
     "htmlWhitespaceSensitivity": "css",
     "bracketSameLine": true,
     "bracketSpacing": true,
@@ -92,7 +92,7 @@ Well commented code is extremely important. Take time to describe components, ho
 Comment style should be simple and consistent within a single code base.
 
 -   Place comments on a new line above their subject.
--   Keep line-length to a sensible maximum, **(Preference: 80 columns)**.
+-   Keep line-length to a sensible maximum, **(Preference: 120 columns)**.
 -   Make liberal use of comments to break CSS code into - discrete sections.
 -   Use "_sentence case_" comments and consistent text indentation.
 
