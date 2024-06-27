@@ -61,7 +61,7 @@ The formatting rules are copied and altered from [Principles of writing consiste
 
 While reading this section can benefit you, utilizing a formatter will save you time. This guide uses [Prettier](https://prettier.io/docs/en/why-prettier) and supports the following code editors:
 
-![](../assets/CSS_Style_Guide/editors_prettier_supports.png)
+![](assets/cite-css-guide/editors-prettier-supports.png)
 
 You can [configure Prettier](https://prettier.io/docs/en/configuration) in a configuration file. Paste the code below in a file called `.prettierrc`.
 
