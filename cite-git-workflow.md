@@ -69,7 +69,7 @@ git commit -m "Refactor search bar"
 git commit -m "Optimize search bar queries"
 ```
 > ![NOTE] 
-> A commit must describe one change only and the subject must be limited to 50 characters. 
+> A commit must describe one change only. If you find it hard (i.e. you did many little changes), describe the most significant change.
 
 Dissecting the examples above, we have the following format:
 
