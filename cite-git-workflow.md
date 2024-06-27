@@ -11,7 +11,7 @@ The process works in 7 steps:
 6. Have your pull request reviewed and tested.
 7. Approve pull request for merging to `main` branch. 
 
-> ![NOTE]
+> [!NOTE]
 > CITE members who are assigned tasks (which are under a project) within Notion can ignore the first step.
 
 ## Table of contents
@@ -68,7 +68,7 @@ git commit -m "Make Apache Server use HTTP instead of HTTPS"
 git commit -m "Refactor search bar" 
 git commit -m "Optimize search bar queries"
 ```
-> ![NOTE] 
+> [!NOTE] 
 > A commit must describe one change only. If you find it hard (i.e. you did many little changes), describe the most significant change.
 
 Dissecting the examples above, we have the following format:
